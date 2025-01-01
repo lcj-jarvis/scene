@@ -1,0 +1,77 @@
+
+# 数据库配置
+spring:
+  shardingsphere:
+    #    mode:
+    #      type: Standalone
+    #      repository:
+    #        type: File
+    #      overwrite: true
+    datasource:
+      # 配置所有用到的数据库，对于不参与分库分表的表，使用的是这里设置的第一个库，即default。
+      names: default, mysql01, mysql02
+      default:
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        #        type: com.zaxxer.hikari.HikariDataSource
+        #        jdbc-url: "jdbc:mysql://192.168.15.104:3306/station01?useUnicode=true&useSSL=false"
+        type: com.alibaba.druid.pool.DruidDataSource
+        url: jdbc:mysql://192.168.15.104:3306/test?useUnicode=true&useSSL=false
+        username: root
+        password: root
+      mysql01:
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        #   type: com.zaxxer.hikari.HikariDataSource
+        #        jdbc-url: "jdbc:mysql://192.168.15.104:3306/station02?useUnicode=true&useSSL=false"
+        type: com.alibaba.druid.pool.DruidDataSource
+        url: jdbc:mysql://192.168.15.104:3306/station01?useUnicode=true&useSSL=false
+        username: root
+        password: root
+      mysql02:
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        #        type: com.zaxxer.hikari.HikariDataSource
+#        jdbc-url: "jdbc:mysql://192.168.15.104:3306/station01?useUnicode=true&useSSL=false"
+        type: com.alibaba.druid.pool.DruidDataSource
+        url: jdbc:mysql://192.168.15.104:3306/station02?useUnicode=true&useSSL=false
+        username: root
+        password: root
+
+    rules:
+      sharding:
+        default-database-strategy:
+          standard:
+            # 分库字段
+            sharding-column: type
+            # 分库规则
+            sharding-algorithm-name: custom-database-sharding
+        tables:
+          t_side_monitor_data:
+            # 所有库的分表
+            actual-data-nodes: mysql01.t_side_monitor_data_${01..12}, mysql02.t_side_monitor_data_${01..12}
+            table-strategy:
+              standard:
+                # 分表字段
+                sharding-column: collect_time
+                # 分表规则
+                sharding-algorithm-name: t-side-monitor-data-inline
+
+            key-generate-strategy:
+              column: id
+              # 分表id生成策略
+              key-generator-name: snowflake
+        sharding-algorithms:
+          # 分库规则
+          custom-database-sharding:
+            type: CUSTOM
+            props:
+              algorithm-class-name: com.mrlu.sharding.route.CustomDatabaseShardingAlgorithm
+          t-side-monitor-data-inline:
+            type: INLINE
+            props:
+#              algorithm-expression: t_side_monitor_data_${String.format("%02d", collect_time.month + 1)}
+              algorithm-expression: t_side_monitor_data_${collect_time.month + 1}
+
+#        key-generators:
+#          snowflake:
+#            type: SNOWFLAKE
+    props:
+      sql-show: true

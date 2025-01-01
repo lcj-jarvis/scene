@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/aop-custom/aop-custom.iml" filepath="$PROJECT_DIR$/aop-custom/aop-custom.iml" />
+      <module fileurl="file://$PROJECT_DIR$/aop-principle/aop-principle.iml" filepath="$PROJECT_DIR$/aop-principle/aop-principle.iml" />
+      <module fileurl="file://$PROJECT_DIR$/bean-creation-process/bean-creation-process.iml" filepath="$PROJECT_DIR$/bean-creation-process/bean-creation-process.iml" />
+      <module fileurl="file://$PROJECT_DIR$/bean-definition-load/bean-definition-load.iml" filepath="$PROJECT_DIR$/bean-definition-load/bean-definition-load.iml" />
+      <module fileurl="file://$PROJECT_DIR$/interface-brush-protection/interface-brush-protection.iml" filepath="$PROJECT_DIR$/interface-brush-protection/interface-brush-protection.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mybatisplus-custom-mapper/mybatisplus-custom-mapper.iml" filepath="$PROJECT_DIR$/mybatisplus-custom-mapper/mybatisplus-custom-mapper.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mybatisplus-enum-logic-delete/mybatisplus-enum-logic-delete.iml" filepath="$PROJECT_DIR$/mybatisplus-enum-logic-delete/mybatisplus-enum-logic-delete.iml" />
+      <module fileurl="file://$PROJECT_DIR$/rabbitmq-demo/rabbitmq-demo.iml" filepath="$PROJECT_DIR$/rabbitmq-demo/rabbitmq-demo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/redis-lua-aop-current-limiting/redis-lua-aop-current-limiting.iml" filepath="$PROJECT_DIR$/redis-lua-aop-current-limiting/redis-lua-aop-current-limiting.iml" />
+      <module fileurl="file://$PROJECT_DIR$/redisson-distributed-lock/redisson-distributed-lock.iml" filepath="$PROJECT_DIR$/redisson-distributed-lock/redisson-distributed-lock.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/scene.iml" filepath="$PROJECT_DIR$/.idea/scene.iml" />
+      <module fileurl="file://$PROJECT_DIR$/scene-common/scene-common.iml" filepath="$PROJECT_DIR$/scene-common/scene-common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/sharding-jdbc-mybatisplus/sharding-jdbc-mybatisplus.iml" filepath="$PROJECT_DIR$/sharding-jdbc-mybatisplus/sharding-jdbc-mybatisplus.iml" />
+      <module fileurl="file://$PROJECT_DIR$/sharding-jdbc-mybatisplus-separate-db-table/sharding-jdbc-mybatisplus-separate-db-table.iml" filepath="$PROJECT_DIR$/sharding-jdbc-mybatisplus-separate-db-table/sharding-jdbc-mybatisplus-separate-db-table.iml" />
+      <module fileurl="file://$PROJECT_DIR$/sharding-jdbc-mybatisplus-separate-table/sharding-jdbc-mybatisplus-separate-table.iml" filepath="$PROJECT_DIR$/sharding-jdbc-mybatisplus-separate-table/sharding-jdbc-mybatisplus-separate-table.iml" />
+      <module fileurl="file://$PROJECT_DIR$/sharding-jdbc-single-column-separate-table/sharding-jdbc-single-column-separate-table.iml" filepath="$PROJECT_DIR$/sharding-jdbc-single-column-separate-table/sharding-jdbc-single-column-separate-table.iml" />
+      <module fileurl="file://$PROJECT_DIR$/transaction-execution-debug/transaction-execution-debug.iml" filepath="$PROJECT_DIR$/transaction-execution-debug/transaction-execution-debug.iml" />
+      <module fileurl="file://$PROJECT_DIR$/transaction-execution-principle/transaction-execution-principle.iml" filepath="$PROJECT_DIR$/transaction-execution-principle/transaction-execution-principle.iml" />
+      <module fileurl="file://$PROJECT_DIR$/redis-mysql-weibo-follow-friend/weibo-follow.iml" filepath="$PROJECT_DIR$/redis-mysql-weibo-follow-friend/weibo-follow.iml" />
+    </modules>
+  </component>
+</project>

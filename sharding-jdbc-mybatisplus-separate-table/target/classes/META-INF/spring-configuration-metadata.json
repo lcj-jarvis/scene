@@ -1,0 +1,22 @@
+{
+  "groups": [
+    {
+      "name": "system",
+      "type": "com.mrlu.table.config.SysConfig",
+      "sourceType": "com.mrlu.table.config.SysConfig"
+    }
+  ],
+  "properties": [
+    {
+      "name": "system.code",
+      "type": "java.lang.String",
+      "sourceType": "com.mrlu.table.config.SysConfig"
+    },
+    {
+      "name": "system.name",
+      "type": "java.lang.String",
+      "sourceType": "com.mrlu.table.config.SysConfig"
+    }
+  ],
+  "hints": []
+}

@@ -1,0 +1,16 @@
+server:
+  port: 8080
+spring:
+  profiles:
+    # 配置根据equipmentNo的hashCode进行取模进行分表配置
+#    include: only_separate_table
+
+    # 配置根据equipmentNo的hashCode进行取模进行分库分表配置
+    include: separate_db_table
+
+
+# MyBatis-Plus 配置
+mybatis-plus:
+  mapper-locations: classpath*:com/mrlu/**/mapper/*.xml
+  configuration:
+    map-underscore-to-camel-case: true

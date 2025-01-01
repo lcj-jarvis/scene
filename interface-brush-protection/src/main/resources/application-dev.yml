@@ -1,0 +1,32 @@
+server:
+  port: 9090
+  servlet:
+    context-path: /protect/
+
+# 设置不同环境，读取不同环境的文件
+spring:
+
+  #数据库配置
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://192.168.15.104:3306/test01
+    username: root
+    password: root
+
+  # redis配置
+  redis:
+    host: 192.168.15.104
+    port: 6379
+    database: 0
+    timeout: 10000ms
+    lettuce:
+      pool:
+        max-active: 50
+        max-wait: 50
+        max-idle: 50
+        min-idle: 0
+
+#mybatisplus 配置
+mybatis-plus:
+  configuration:
+    map-underscore-to-camel-case: true

@@ -1,0 +1,102 @@
+# 配置根据equipmentNo的hashCode进行取模进行分库分表配置
+spring:
+  shardingsphere:
+    #    开启sql日志
+    props:
+      sql-show: true
+    datasource:
+      names: ds_0,ds_1
+      ds_0:
+        type: com.alibaba.druid.pool.DruidDataSource
+        url: jdbc:mysql://192.168.15.104:3306/sp_0?useUnicode=true&useSSL=false
+        username: root
+        password: root
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        druid:
+          initial-size: 5
+          min-idle: 5
+          max-active: 20
+          max-wait: 60000
+          time-between-eviction-runs-millis: 60000
+          min-evictable-idle-time-millis: 300000
+          validation-query: SELECT 1
+          test-while-idle: true
+          test-on-borrow: false
+          test-on-return: false
+          pool-prepared-statements: true
+          max-pool-prepared-statement-per-connection-size: 20
+      ds_1:
+        type: com.alibaba.druid.pool.DruidDataSource
+        url: jdbc:mysql://192.168.15.104:3306/sp_1?useUnicode=true&useSSL=false
+        username: root
+        password: root
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        druid:
+          initial-size: 5
+          min-idle: 5
+          max-active: 20
+          max-wait: 60000
+          time-between-eviction-runs-millis: 60000
+          min-evictable-idle-time-millis: 300000
+          validation-query: SELECT 1
+          test-while-idle: true
+          test-on-borrow: false
+          test-on-return: false
+          pool-prepared-statements: true
+          max-pool-prepared-statement-per-connection-size: 20
+
+    rules:
+      sharding:
+        default-database-strategy:
+          standard:
+            # 分库字段
+            sharding-column: equipment_no
+            # 指定分库规则名称
+            sharding-algorithm-name: database-inline
+
+        tables:
+          # 逻辑表名
+          t_ns_common_monitoring_data:
+            # 实际执行的表，由数据源名 + 表名组成（参考 Inline 语法规则）
+            actual-data-nodes: ds_${0..1}.t_ns_common_monitoring_data_${1..10}
+            table-strategy:
+              standard:
+                # 指定分表的列为 equipment_no
+                sharding-column: equipment_no
+                # 指定分表的算法名称
+                sharding-algorithm-name: monitoring_data_inline
+
+            # 设置key的生成策略
+            key-generate-strategy:
+              # 设置主键生成的列名为id
+#              column: id
+#              设置主键生成的列名为data_id
+              column: data_id
+              # 指定id生成的算法名称
+              key-generator-name: id_key_generator
+
+        sharding-algorithms:
+          # 分库规则
+          database-inline:
+            type: inline
+            props:
+              # 使用 hashCode 和取模实现分表，计算结果应在 1..10 之间
+              algorithm-expression: ds_${Math.abs(equipment_no.hashCode()) % 2}
+          # 分表规则
+          monitoring_data_inline:
+            type: inline
+            props:
+              # 使用 hashCode 和取模实现分表，计算结果应在 1..10 之间
+              algorithm-expression: t_ns_common_monitoring_data_${Math.abs(equipment_no.hashCode()) % 10 + 1}
+
+        key-generators:
+          # https://shardingsphere.apache.org/document/current/cn/user-manual/common-config/builtin-algorithm/keygen/
+          #  ShardingSphereAlgorithmConfiguration构造方法调试可看到加载
+          # 指定id生成的算法名称
+          id_key_generator:
+            # 指定算法类型
+            type: SNOWFLAKE
+            props:
+              # todo 目前没有生效
+              worker-id: 1
+#              max-vibration-offset: 3

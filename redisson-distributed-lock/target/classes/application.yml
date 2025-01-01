@@ -1,0 +1,39 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /limit-server/
+
+#数据库配置
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://192.168.15.104:3306/test
+    username: root
+    password: root
+
+  # redis配置
+  redis:
+    host: 192.168.15.104
+    port: 6379
+    database: 0
+    timeout: 10000ms
+    lettuce:
+      pool:
+        max-active: 50
+        max-wait: 50
+        max-idle: 50
+        min-idle: 0
+  redisson:
+    codec: org.redisson.codec.JsonJacksonCodec
+    threads: 8
+    netty:
+      threads: 8
+    single-server-config:
+      address: "redis://192.168.15.104:6379"
+#      password: null
+      database: 0
+
+#mybatisplus 配置
+mybatis-plus:
+  configuration:
+    map-underscore-to-camel-case: true

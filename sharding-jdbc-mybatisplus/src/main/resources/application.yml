@@ -1,0 +1,56 @@
+server:
+  port: 8080
+
+# 数据库配置
+spring:
+  shardingsphere:
+#    开启sql日志
+    props:
+      sql-show: true
+    datasource:
+      names: ds0
+      ds0:
+        type: com.alibaba.druid.pool.DruidDataSource
+        url: jdbc:mysql://192.168.15.104:3306/station_default?useUnicode=true&useSSL=false
+        username: root
+        password: root
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        druid:
+          initial-size: 5
+          min-idle: 5
+          max-active: 20
+          max-wait: 60000
+          time-between-eviction-runs-millis: 60000
+          min-evictable-idle-time-millis: 300000
+          validation-query: SELECT 1
+          test-while-idle: true
+          test-on-borrow: false
+          test-on-return: false
+          pool-prepared-statements: true
+          max-pool-prepared-statement-per-connection-size: 20
+
+    rules:
+      sharding:
+        tables:
+          t_side_monitor_data:
+            actual-data-nodes: ds0.t_side_monitor_data_${1..24}
+            # 等同于上面
+#            actual-data-nodes: ds0.t_side_monitor_data_${01..24}
+            table-strategy:
+              complex:
+                sharding-columns: collect_time, type
+                sharding-algorithm-name: customShardingAlgorithm
+            key-generator:
+              column: id
+              type: SNOWFLAKE
+        sharding-algorithms:
+          customShardingAlgorithm:
+            type: COMPLEX
+            props:
+              strategyClass: com.mrlu.sharding.route.CustomShardingAlgorithm
+#              allow-range-query-with-inline-sharding: true
+
+# MyBatis-Plus 配置
+mybatis-plus:
+  configuration:
+    map-underscore-to-camel-case: true

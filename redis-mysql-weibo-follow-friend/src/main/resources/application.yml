@@ -1,0 +1,30 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /weibo/
+
+#数据库配置
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://192.168.15.104:3306/test
+    username: root
+    password: root
+
+  # redis配置
+  redis:
+    host: 192.168.15.104
+    port: 6379
+    database: 0
+    timeout: 10000ms
+    lettuce:
+      pool:
+        max-active: 8
+        max-wait: 50
+        max-idle: 8
+        min-idle: 0
+
+#mybatisplus 配置
+mybatis-plus:
+  configuration:
+    map-underscore-to-camel-case: true

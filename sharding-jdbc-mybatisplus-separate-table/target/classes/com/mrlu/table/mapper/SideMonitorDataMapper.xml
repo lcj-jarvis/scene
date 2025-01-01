@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mrlu.table.mapper.SideMonitorDataMapper">
+    <!--
+    加上排序会报错
+    ORDER BY collect_time DESC
+    -->
+    <select id="selectByCondition" resultType="com.mrlu.table.entity.SideMonitorData">
+        SELECT *
+        FROM t_side_monitor_data
+        <where>
+            <if test="type != null and type != ''">
+                AND type = #{type}
+            </if>
+            <if test="name != null and name != ''">
+                AND name = #{name}
+            </if>
+            <if test="begin != null">
+                AND collect_time &gt;= #{begin}
+            </if>
+            <if test="end != null">
+                AND collect_time &lt;= #{end}
+            </if>
+        </where>
+    </select>
+</mapper>

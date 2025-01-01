@@ -1,0 +1,17 @@
+server:
+  port: 8080
+spring:
+  profiles:
+    include: sharding_jdbc,mbp_dynamic
+
+
+
+system:
+  name: SparateTableAppServer
+  code: test
+
+# MyBatis-Plus 配置
+mybatis-plus:
+  mapper-locations: classpath*:com/mrlu/**/mapper/*.xml
+  configuration:
+    map-underscore-to-camel-case: true

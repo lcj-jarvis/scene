@@ -1,0 +1,12 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /mp-method/
+
+#数据库配置
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://192.168.15.104:3306/test?useUnicode=true&useSSL=false
+    username: root
+    password: root

@@ -1,0 +1,2 @@
+com.mrlu.sharding.route.CustomDatabaseShardingAlgorithm
+com.mrlu.sharding.route.CustomTableShardingAlgorithm

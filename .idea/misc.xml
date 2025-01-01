@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="MavenProjectsManager">
+    <option name="originalFiles">
+      <list>
+        <option value="$PROJECT_DIR$/scene-common/pom.xml" />
+        <option value="$PROJECT_DIR$/rabbitmq-demo/pom.xml" />
+        <option value="$PROJECT_DIR$/bean-definition-load/pom.xml" />
+        <option value="$PROJECT_DIR$/bean-creation-process/pom.xml" />
+        <option value="$PROJECT_DIR$/redisson-distributed-lock/pom.xml" />
+        <option value="$PROJECT_DIR$/interface-brush-protection/pom.xml" />
+        <option value="$PROJECT_DIR$/mybatisplus-enum-logic-delete/pom.xml" />
+        <option value="$PROJECT_DIR$/redis-lua-aop-current-limiting/pom.xml" />
+        <option value="$PROJECT_DIR$/redis-mysql-weibo-follow-friend/pom.xml" />
+        <option value="$PROJECT_DIR$/transaction-execution-principle/pom.xml" />
+        <option value="$PROJECT_DIR$/mybatisplus-custom-mapper/pom.xml" />
+        <option value="$PROJECT_DIR$/aop-principle/pom.xml" />
+        <option value="$PROJECT_DIR$/aop-custom/pom.xml" />
+        <option value="$PROJECT_DIR$/transaction-execution-debug/pom.xml" />
+        <option value="$PROJECT_DIR$/sharding-jdbc-mybatisplus/pom.xml" />
+        <option value="$PROJECT_DIR$/sharding-jdbc-mybatisplus-separate-db-table/pom.xml" />
+        <option value="$PROJECT_DIR$/sharding-jdbc-mybatisplus-separate-table/pom.xml" />
+        <option value="$PROJECT_DIR$/sharding-jdbc-single-column-separate-table/pom.xml" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" project-jdk-name="1.8" project-jdk-type="JavaSDK" />
+  <component name="ProjectType">
+    <option name="id" value="jpab" />
+  </component>
+</project>

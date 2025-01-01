@@ -1,0 +1,32 @@
+{
+  "groups": [
+    {
+      "name": "sys",
+      "type": "com.mrlu.tx.config.SysConf",
+      "sourceType": "com.mrlu.tx.config.SysConf"
+    },
+    {
+      "name": "sys.configuration",
+      "type": "com.mrlu.tx.config.Conf",
+      "sourceType": "com.mrlu.tx.config.SysConf"
+    }
+  ],
+  "properties": [
+    {
+      "name": "sys.configuration.name",
+      "type": "java.lang.String",
+      "sourceType": "com.mrlu.tx.config.Conf"
+    },
+    {
+      "name": "sys.configuration.port",
+      "type": "java.lang.String",
+      "sourceType": "com.mrlu.tx.config.Conf"
+    },
+    {
+      "name": "sys.location",
+      "type": "java.lang.String",
+      "sourceType": "com.mrlu.tx.config.SysConf"
+    }
+  ],
+  "hints": []
+}

@@ -1,0 +1,10 @@
+server:
+  port: 8080
+spring:
+  profiles:
+    include: sharding_jdbc,mbp_dynamic
+
+# MyBatis-Plus 配置
+mybatis-plus:
+  configuration:
+    map-underscore-to-camel-case: true

@@ -1,0 +1,4 @@
+# 设置不同环境，读取不同环境的文件
+spring:
+  profiles:
+    active: @spring.profiles.active@

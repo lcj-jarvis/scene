@@ -1,0 +1,22 @@
+{
+  "groups": [
+    {
+      "name": "nested",
+      "type": "com.linkcm.NanshanServerApplication$NestedConfig",
+      "sourceType": "com.linkcm.NanshanServerApplication$NestedConfig"
+    }
+  ],
+  "properties": [
+    {
+      "name": "nested.ip",
+      "type": "java.lang.String",
+      "sourceType": "com.linkcm.NanshanServerApplication$NestedConfig"
+    },
+    {
+      "name": "nested.port",
+      "type": "java.lang.String",
+      "sourceType": "com.linkcm.NanshanServerApplication$NestedConfig"
+    }
+  ],
+  "hints": []
+}
